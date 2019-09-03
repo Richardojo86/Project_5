@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from  'react-redux';
-import { Player as Video } from 'video-react';
-import 'video-react/dist/video-react.css';
+import Iframe from 'react-iframe';
 
 import {getGenreArtist} from '../../actions/genresActions';
 import Back from '../back'
@@ -15,20 +14,35 @@ class Player extends Component {
     this.props.dispatch(getGenreArtist(params));
   }
 
+  loadIframe = (videoUrl) => {
+    return <Iframe url={videoUrl}
+      width="450px"
+      height="450px"
+      id="myId"
+      className="myClassname"
+      display="initial"
+      position="relative"/>
+  }
+
   render() {
     const {data} = this.props.artistLists;
+
+    if(data && data.items.length) {
+      console.log("data ", data.items[0].video)
+    }
     return (
       <div>
         <Header />
         <div style= {{ border: "1px solid green", padding: "1rem", margin: "1rem"}}>
-          {data && (
-            <div>
-              {data.items[0].video}
-              <Video>
-                <source src={data.items[0].video} />
-              </Video>
-            </div>
-          )}
+          {data && (<div style={{margin: "0 auto", width: "50%", textAlign: "center"}}>
+          <Iframe url={`http://www.youtube.com/embed/${data.items[0].video}`}
+        width="450px"
+        height="450px"
+        id="myId"
+        className="myClassname"
+        display="initial"
+        position="relative"/>
+          </div>)}
         </div>
         <Back />
       </div>
