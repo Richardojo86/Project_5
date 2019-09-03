@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from  'react-redux';
 import { Player as Video } from 'video-react';
+import 'video-react/dist/video-react.css';
 
 import {getGenreArtist} from '../../actions/genresActions';
 import Back from '../back'
@@ -23,10 +24,9 @@ class Player extends Component {
           {data && (
             <div>
               {data.items[0].video}
-              <Video
-                playsInline
-                src={data.items[0].video}
-              />
+              <Video>
+                <source src={data.items[0].video} />
+              </Video>
             </div>
           )}
         </div>

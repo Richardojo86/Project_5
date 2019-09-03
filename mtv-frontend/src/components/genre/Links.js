@@ -8,7 +8,7 @@ class Genrelinks extends Component {
   render() {
     const {data} = this.props;
     return (
-      <div>
+      <div className="links">
       <ul>
         {data && data.map(items => (
           <li key={items.id}>
