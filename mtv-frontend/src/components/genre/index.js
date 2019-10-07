@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from  'react-redux'
-import {getAllGenres} from '../../actions/genresActions'
+import {getGenre} from '../../actions/genresActions'
 
 import Header from '../Header'
 import Back from '../back'
@@ -8,30 +8,35 @@ import List from '../Artist/list'
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(getAllGenres());
+    const {genresId} = this.props.match.params;
+    this.props.getGenre(genresId);
   }
 
-  filteredData(arrayItems,title) {
+  filteredData(arrayItems, genresId) {
     if(arrayItems && arrayItems.items) {
       const {items} = arrayItems;
-      return items.filter(item => item.title === title)
+      return items.filter(item => item.id === genresId)
     }
   }
 
   render() {
-    const {title} = this.props.match.params;
     const {data} = this.props.genreLists;
-    const filteredItem = this.filteredData(data,title);
 
     return (
       <div>
         <Header />
-        <List dataItems={filteredItem} />
+        {data && <List dataItems={data.items} />}
         <Back />
       </div>
     )
   }
 };
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getGenre: (data) => dispatch(getGenre(data))
+  }
+}
 
 const mapStateToProps = state => {
   return {
@@ -39,4 +44,4 @@ const mapStateToProps = state => {
   }
 };
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

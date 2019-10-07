@@ -31,6 +31,7 @@ code {
 
 .header h1{
   color: white;
+  font-size: 40px;
 }
 
 .links{
@@ -45,7 +46,7 @@ code {
 .links li a{
   text-decoration: none;
   color: blue;
-  font-size: 22px;
+  font-size: 25px;
 }
 
 .artist-pic {
@@ -70,6 +71,10 @@ code {
   margin: 1rem;
 }
 
+.tile-wrapper{
+  color: yellow
+}
+
 .list-wrapper{
   text-decoration-color: white;
   border: 1px solid purple;
@@ -78,4 +83,9 @@ code {
   max-width: 450px;
   width: 100%;
   margin: 0 auto;
+}
+
+.list-wrapper {
+  color: blue;
+  font-size: 25px;
 }

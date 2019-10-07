@@ -15,8 +15,10 @@ class GenresController < ApplicationController
     render json: genre
   end
 
+  private
+
   def genre_params
-    params.require(:genre).permit(:title)
+    params.require(:genre).permit(:title, :history)
   end
 
 

@@ -1,2 +1,4 @@
 export const GET_ALL_GENRES = 'GET_ALL_GENRES'
+export const GET_SINGLE_GENRE = 'GET_SINGLE_GENRE'
 export const GET_GENRE_ARTIST = "GET_GENRE_ARTIST"
+export const UPDATE_LIKES = "UPDATE_LIKES"

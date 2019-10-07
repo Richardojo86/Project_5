@@ -1,24 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Player from './Player';
 import Tile from './tile';
 
-class List extends Component {
-  render() {
-    const {dataItems} = this.props
-    console.log(dataItems)
-   return (
-     <div className="list-wrapper">
-      {dataItems && dataItems.map(items => (
-        <div key={items.id}>
-          <span>{`Genre Title: ${items.title}`} </span>
-          <span>{`Genre History: ${items.history}`} </span>
-
-          <Tile artistInfo={items.Artists} title={items.title} />
-        </div>
-      ))}
-     </div>
-   )
- }
+const propTypes = {
+  dataItems: PropTypes.arrayOf(PropTypes.object)
 }
+
+const defaultProps = {
+  dataItems: []
+}
+
+const List = ({ dataItems }) => (
+  <div className="list-wrapper">
+  {dataItems && (
+    <div key={dataItems.id}>
+      <span>{`Genre Title: ${dataItems.title}`} </span>
+      <span>{`Genre History: ${dataItems.history}`} </span>
+
+      <Tile items={dataItems.Artists} genresId={dataItems.id} key={dataItems.id} />
+    </div>
+  )}
+  </div>
+)
 
 export default List;

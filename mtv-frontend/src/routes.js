@@ -8,8 +8,8 @@ export default () => (
   <Router>
     <div>
       <Route exact path="/" component={Home} />
-      <Route exact path="/genres/:title" component={Genres} />
-      <Route exact path="/:title/artistplayer/:id" component={ArtistPlayer} />
+      <Route exact path="/genres/:genresId" component={Genres} />
+      <Route exact path="/genres/:genresId/artistplayer/:id" component={ArtistPlayer} />
     </div>
   </Router>
 );

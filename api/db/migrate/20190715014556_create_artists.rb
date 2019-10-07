@@ -6,6 +6,7 @@ class CreateArtists < ActiveRecord::Migration[5.2]
       t.string :Greatest_hits
       t.integer :age
       t.string :video
+      t.integer :likes, default: 0
       t.belongs_to :genre, foreign_key: true
 
       t.timestamps

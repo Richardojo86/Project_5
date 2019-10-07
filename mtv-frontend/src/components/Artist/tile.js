@@ -1,29 +1,25 @@
-import React, {Component, Fragment} from 'react';
+import React, { Fragment } from 'react';
 import {Link} from 'react-router-dom';
 
-class Tile extends Component {
-  render() {
-    const {artistInfo, title} = this.props;
-    console.log(this.props)
-
-   return (
+const Tile = ({ items, genresId }) => (
+  <Fragment>
+   {items && genresId && items.map(artist => (
      <Fragment>
-      {artistInfo && artistInfo.map(item => (
-        <Link to={`/${title}/artistplayer/${item.id}`} style= {{ border: "1px solid purple", padding: "1rem", margin: "1rem"}}>
-        <div key={item.id} className="tile-wrapper">
-          <span>{`Id: ${item.id}`} </span>
-          <strong>Artist: {item.name} </strong>
-          <h5>Greatest Hits: {item.Greatest_hits} </h5>
-          <img src={item.image} className="artist-pic"/>
-          <p>Age: {item.age}</p>
-          <button>Likes </button>
-          <p>{item.likes}</p>
-        </div>
-        </Link>
-      ))}
+     <Link to={`/genres/${genresId}/artistplayer/${artist.id}`} key={artist.id} style= {{ border: "1px solid purple", padding: "1rem", margin: "1rem"}}>
+     <div key={artist.id} className="tile-wrapper">
+       <span>{`Id: ${artist.id}`} </span>
+       <strong>Artist: {artist.name} </strong>
+       <h5>Greatest Hits: {artist.Greatest_hits} </h5>
+       <img src={artist.image} className="artist-pic"/>
+       <p>Age: {artist.age}</p>
+     </div>
+     </Link>
+     <div>
+     <p>{artist.likes}</p>
+     </div>
      </Fragment>
-   )
- }
-}
+   ))}
+  </Fragment>
+)
 
 export default Tile;
