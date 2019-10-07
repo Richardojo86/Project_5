@@ -1,28 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Player from './Player';
 import Tile from './tile';
 
-// const propTypes = {
-//   dataItems: PropTypes.arrayOf(PropTypes.object)
-// }
-//
-// const defaultProps = {
-//   dataItems: []
-// }
-class List extends Component {
+const propTypes = {
+  dataItems: PropTypes.arrayOf(PropTypes.object)
+}
 
-
-render() {
-let itemsArtist = dataItems.Artists
-
-// itemsArtist.sort()
-
+const defaultProps = {
+  dataItems: []
+}
+// console.log(dataItems.Artists.id),
+// let items_artist = dataItems.Artists,
+// items_artist.sort()
 
 const List = ({ dataItems }) => (
   <div className="list-wrapper">
   {dataItems && (
-    console.log(dataItems.Artists),
     <div key={dataItems.id}>
       <span>{`Genre Title: ${dataItems.title}`} </span>
       <span>{`Genre History: ${dataItems.history}`} </span>
@@ -31,7 +25,6 @@ const List = ({ dataItems }) => (
     </div>
   )}
   </div>
-)}
-}
+)
 
 export default List;
