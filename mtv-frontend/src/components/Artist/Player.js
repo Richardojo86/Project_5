@@ -18,7 +18,9 @@ class Player extends Component {
     const {params} = this.props.match;
     const {id, genresId} = params;
     console.log(params)
+    console.log('A')
     this.props.updateLikes([id, genresId]);
+    console.log('B')
   }
 
   render() {

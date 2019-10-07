@@ -84,6 +84,7 @@ export const getGenreArtist = (data) => async dispatch => {
 }
 
 export const updateGenresLikes = (data) => async dispatch => {
+  console.log('C')
   const response = {
     loading: false,
     status: false,
