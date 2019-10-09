@@ -17,10 +17,7 @@ class Player extends Component {
   buttonClick = () => {
     const {params} = this.props.match;
     const {id, genresId} = params;
-    console.log(params)
-    console.log('A')
     this.props.updateLikes([id, genresId]);
-    console.log('B')
   }
 
   render() {

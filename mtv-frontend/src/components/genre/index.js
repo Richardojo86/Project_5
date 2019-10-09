@@ -12,12 +12,12 @@ class App extends Component {
     this.props.getGenre(genresId);
   }
 
-  filteredData(arrayItems, genresId) {
-    if(arrayItems && arrayItems.items) {
-      const {items} = arrayItems;
-      return items.filter(item => item.id === genresId)
-    }
-  }
+  // filteredData(arrayItems, genresId) {
+  //   if(arrayItems && arrayItems.items) {
+  //     const {items} = arrayItems;
+  //     return items.filter(item => item.id === genresId)
+  //   }
+  // }
 
   render() {
     const {data} = this.props.genreLists;
