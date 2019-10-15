@@ -10,15 +10,7 @@ state = {
 }
 
   render() {
-    // const compare = (a, b) => {
-    //   if ( a.id < b.id ){
-    //     return -1;
-    //   }
-    //   if ( a.id > b.id ){
-    //     return 1;
-    //   }
-    //   return 0;
-    // };
+
     const sortbyname = (a, b) => {
       if ( a.name < b.name ){
         return -1;
@@ -32,11 +24,7 @@ state = {
     const {dataItems} = this.props
     const items = this.state.items
     const artists = this.state.artists
-    // console.log("data from state>>>>",items)
-    // console.log("artists from state=====",this.state.items.Artists)
-    // console.log("data from props->->->->",dataItems)
-    // console.log("artists from state-----", artists)
-    // console.log("artists from functions+++++",artists.sort(compare))
+
    return (
      <div className="list-wrapper">
     {dataItems && (
